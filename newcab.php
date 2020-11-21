@@ -128,7 +128,7 @@
                     $final_fare += 200;
                 }
             }
-            elseif($distance <= 50){
+            elseif( $distance <= 50){
                 $final_fare = $fixed_fare + (($distance -10)* 14.00);
                 $final_fare += 10 * 15.50;
                 if($luggage <=10){
@@ -298,7 +298,7 @@
                 <div class="container">
                     <div class="row text-left ">
                         <div class="col-lg-7 city">
-                            <form action="cabs.php" method="post">
+                            <form action="newcab.php" method="post">
                                 <h2 class="text-center head-city mt-3 pl-4">CITY TAXI</h2>
                                 <p class="text-center sub-city">Your everyday travel partner</p>
                                 <p class="text-center sub-city">AC cabs for point to point travel</p>
