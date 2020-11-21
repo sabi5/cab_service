@@ -32,7 +32,7 @@
             $distance = $distance * (-1);
         }
         
-        echo "<script>alert('Pickup: '+'$pickup'+ ' '+'Drop: '+'$drop'+' '+ 'Luggage: '+'$luggage'+ ' '+'Distance: '+'$distance'+' '+ 'Cabtype: '+ '$cabtype');</script>";
+        // echo "<script>alert('Pickup: '+'$pickup'+ ' '+'Drop: '+'$drop'+' '+ 'Luggage: '+'$luggage'+ ' '+'Distance: '+'$distance'+' '+ 'Cabtype: '+ '$cabtype');</script>";
         
         if($cabtype == "CedMicro"){
             $fixed_fare = 50;
@@ -233,7 +233,7 @@
                 }
             }
         }
-        echo "<script>alert('FINAL FARE: '+'$final_fare');</script>";
+        // echo "<script>alert('FINAL FARE: '+'$final_fare');</script>";
     }
 ?>
 
@@ -350,17 +350,30 @@
                                     </div>
                                 </div>
                                 </p>
-                                <p id="lug">
-                                <div class="form-group row">
+                               
+                                <div id="lug" class="form-group row">
                                     <label for="luggage" class="col-sm-2 col-form-label">LUGGAGE</label>
                                     <div class="col-sm-10">
                                         <input class="form-control" type="text" placeholder="Enter weight in KG" onkeypress="return myFunction()" name="luggage">
                                     </div>
                                     <br>
                                 </div>
-                                </p>
+                               
                                 <p>
                                     <input type="submit" name="submit" value="CALCULATE FARE" class="btn form-control font-weight-bold button" required >
+                                </p>
+                                <p class="bg-info text-center ">
+                                    
+                                <?php
+                                if(isset($final_fare)){
+                                
+                                echo $final_fare;
+                                }else{
+                                    echo "";
+                                }
+                                
+                                ?>
+                                
                                 </p>
                             </form>
                         </div>
@@ -368,7 +381,30 @@
                 </div>
             </div>
         </section>
-        
+        <script>
+            function myfunc(){
+               
+                var x = document.getElementById("select").value;
+                
+                if(x == "CedMicro"){
+                    document.getElementById("lug").style.display = "none";
+                } else {
+                    document.getElementById("lug").style.display = "flex";
+                }
+            }
+            function myFunction() {
+                var x;
+                x = document.getElementById("lug").value;
+
+                if ((event.keyCode > 48) && (event.keyCode < 58)) {
+                    return true;
+                } else {
+                    alert('Please enter numeric value only !');
+                    return false;
+                }
+                
+            }
+        </script>
          <!-- footer -->
         <footer  style="background-color: #2c292f">
             <div class="container">
@@ -425,27 +461,6 @@
 
         <!-- end of footer -->
 
-        <script>
-            function myfunc(){
-                var x = document.getElementById("select").value;
-                if(x == "CedMicro"){
-                    document.getElementById("lug").style.display = "none";
-                } else {
-                    document.getElementById("lug").style.display = "block";
-                }
-            }
-            function myFunction() {
-                var x;
-                x = document.getElementById("lug").value;
-
-                if ((event.keyCode > 48) && (event.keyCode < 58)) {
-                    return true;
-                } else {
-                    alert('Please enter numeric value only !');
-                    return false;
-                }
-                
-            }
-        </script>
+        
     </body>
 </html>

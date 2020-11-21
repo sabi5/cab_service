@@ -63,6 +63,12 @@ select{
     background-color:rgb(255, 217, 0);
 }
 
+.result{
+    /* width: 900px; */
+   
+    background-color: chartreuse;
+}
+
 @media only screen and (max-width: 768px) {
     footer {
       margin-bottom: -1000px;
